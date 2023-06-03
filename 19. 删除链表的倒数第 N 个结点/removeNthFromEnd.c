@@ -61,6 +61,30 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     return head;
 }
 
+struct ListNode* removeNthFromEnd1(struct ListNode* head, int n)
+{
+    struct ListNode *node =head -> next;
+   int i = 1;
+   while(node -> next != NULL){
+       node = node -> next;
+       i++;
+   }
+   
+   i = i - n - 1;
+   printf("i = %d\n",i);
+    if(i < 0){
+        return head = head -> next;
+    }
+    node = head;
+    for(int j = 1; j <= i; j++){
+        node = node -> next;
+    }
+    printf("%d\n",node -> val);
+     struct ListNode *list =node -> next;
+    node -> next = node -> next -> next;
+    free(list);
+   return head;
+}
 int main(void){
     struct ListNode *head = creatList();
     head = addAtTail(head,1);
@@ -73,6 +97,7 @@ int main(void){
     printList(head);
     printf("\n");
     head = removeNthFromEnd(head,2);
+    // head = removeNthFromEnd1(head,2);
     printList(head);
     return 0;
 }
