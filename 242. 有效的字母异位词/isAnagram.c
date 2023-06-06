@@ -18,7 +18,7 @@ bool isAnagram(char * s, char * t){
     }
     for(int i = 0; i < lent; ++i){
         table[t[i] - 'a']--;
-        if(table[i] < 0){
+        if(table[t[i] - 'a'] < 0){
             return  false;
         }
     }
