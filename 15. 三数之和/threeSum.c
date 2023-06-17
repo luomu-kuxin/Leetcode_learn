@@ -24,7 +24,7 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
     qsort(nums,numsSize,sizeof(int),cmp);
 
     
-    for(int i = 0; i < numsSize - 3; i++){
+    for(int i = 0; i < numsSize - 2; i++){
         if(nums[i] > 0){
             break;
         }
@@ -64,6 +64,12 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
     return ans;
 }
 
+
+int** threeSum1(int* nums, int numsSize, int* returnSize, int** returnColumnSizes)
+{
+
+}
+
 void printsum(int ** sum, int size, int *ColumSize)
 {
     for(int i = 0 ; i < size; i++){
@@ -77,11 +83,11 @@ void printsum(int ** sum, int size, int *ColumSize)
 
 int main(void)
 {
-    int num[6] = {-1,0,1,2,-1,-3};
+    int num[3] = {0,0,0};
     int **sum = NULL;
     int size = 0;
     int *csize = NULL;
-    sum = threeSum(num,6,&size,&csize);
+    sum = threeSum(num,3,&size,&csize);
     printsum(sum,size,csize);
 
     return 0;
